@@ -33,7 +33,9 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
-                android:id="@+id/editText" />
+                android:id="@+id/editText"
+                android:clickable="true"
+                android:focusable="true" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -143,7 +145,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/Calc"
                 android:id="@+id/textView3" />
         </LinearLayout>
     </ScrollView>
@@ -154,6 +155,9 @@
         android:text="New Button"
         android:id="@+id/button3"
         android:layout_below="@+id/scrollView3"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="calculateAvg"
+        android:focusable="true"
+        android:clickable="true" />
 
 </RelativeLayout>
