@@ -2,17 +2,23 @@ package com.strobertchs.methodmadness;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
+    public static ArrayList<EditText> initialAverages;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initialAverages = new ArrayList<>();
     }
 
 
@@ -46,6 +52,13 @@ public class MainActivity extends AppCompatActivity {
         textout.setText(finalAvg);
 
 
+    }
+
+    public void addLine(View view) {
+        EditText entry = new EditText(this);
+        entry.setInputType(InputType.TYPE_CLASS_NUMBER);
+        ((LinearLayout) findViewById(R.id.initialLayout)).addView(entry);
+        initialAverages.add(entry);
     }
 }
 
