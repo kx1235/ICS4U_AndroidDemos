@@ -3,6 +3,7 @@ package com.strobertchs.methodmadness;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -14,16 +15,24 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     public static ArrayList<EditText> initialAverages;
+
+    public static int counter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initialAverages = new ArrayList<>();
+        counter = 1;
     }
 
 
     public void calculateAvg(View v){
 
+
+
+
+
+/*
         EditText student1 = (EditText) findViewById(R.id.editText);
         EditText student2 = (EditText) findViewById(R.id.editText2);
         EditText student3 = (EditText) findViewById(R.id.editText3);
@@ -42,15 +51,9 @@ public class MainActivity extends AppCompatActivity {
 
         String finalAvg = Float.toString(avg);
 
-
-
-
-
-
-
         TextView textout = (TextView) findViewById(R.id.textView3);
         textout.setText(finalAvg);
-
+*/
 
     }
 
@@ -59,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
         entry.setInputType(InputType.TYPE_CLASS_NUMBER);
         ((LinearLayout) findViewById(R.id.initialLayout)).addView(entry);
         initialAverages.add(entry);
+        counter = counter + 1;
+        Log.i("Lines init", "number of init averages = " + counter);
     }
 }
 
