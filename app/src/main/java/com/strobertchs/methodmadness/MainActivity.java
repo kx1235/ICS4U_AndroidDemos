@@ -10,30 +10,79 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
-    public static ArrayList<EditText> initialAverages;
-
-    public static int counter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initialAverages = new ArrayList<>();
-        counter = 1;
     }
 
+    float initialAverage = 0;
 
-    public void calculateAvg(View v){
+
+
+
+    public void intAvg (View v){
+        /*
+        EditText numInitStudent = (EditText) findViewById(R.id.editText3);
+        String strNumInit = numInitStudent.getText().toString();
+        float intNumInit = Integer.parseInt(strNumInit);
+        */
+
+
+        EditText initMarks = (EditText) findViewById(R.id.editText);
+        String strMarks = initMarks.getText().toString();
+        String initMarkList[] = strMarks.split("\n");
+
+
+        /*
+        String outprint = initMarkList[0]+"\n" + initMarkList[1]+initMarkList[2];
+        TextView textout = (TextView) findViewById(R.id.textView3);
+
+        textout.setText(outprint);
+        */
+
+
+        float sum = 0;
+        for (int i = 0; i< initMarkList.length; i++){
+            String mark = initMarkList[i];
+            float intMark = Float.parseFloat(mark);
+            sum = sum+intMark;
+            /*
+            String fMark = Float.toString(sum);
+            TextView textout = (TextView) findViewById(R.id.textView3);
+            String outprint = fMark +"\n" ;
+            textout.setText(outprint);
+            */
+        }
+
+        initialAverage = sum/initMarkList.length;
+        String strInitAvg = Float.toString(initialAverage);
+        TextView textout = (TextView) findViewById(R.id.textView3);
+        textout.setText(strInitAvg);
+
+
+
+
+
+
+
+      }
+
+
 
 
 
 
 
 /*
-        EditText student1 = (EditText) findViewById(R.id.editText);
+
+        EditText student1 = (EditText) findViewById(R.id.editText;
         EditText student2 = (EditText) findViewById(R.id.editText2);
         EditText student3 = (EditText) findViewById(R.id.editText3);
         EditText student4 = (EditText) findViewById(R.id.editText4);
@@ -55,15 +104,13 @@ public class MainActivity extends AppCompatActivity {
         textout.setText(finalAvg);
 */
 
-    }
 
-    public void addLine(View view) {
-        EditText entry = new EditText(this);
+
+
+        /*EditText entry = new EditText (this);
+        entry.setId(counter);
         entry.setInputType(InputType.TYPE_CLASS_NUMBER);
         ((LinearLayout) findViewById(R.id.initialLayout)).addView(entry);
-        initialAverages.add(entry);
-        counter = counter + 1;
-        Log.i("Lines init", "number of init averages = " + counter);
-    }
-}
+        */
 
+}
