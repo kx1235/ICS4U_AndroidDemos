@@ -13,7 +13,7 @@
         android:layout_width="160dp"
         android:layout_height="250dp"
         android:id="@+id/scrollView"
-        android:layout_above="@+id/scrollView3"
+        android:layout_alignParentTop="true"
         android:layout_alignParentStart="true">
 
         <LinearLayout
@@ -44,7 +44,7 @@
         android:layout_width="160dp"
         android:layout_height="250dp"
         android:id="@+id/scrollView2"
-        android:layout_above="@+id/scrollView3"
+        android:layout_below="@+id/linearLayout"
         android:layout_alignEnd="@+id/scrollView3">
 
         <LinearLayout
@@ -77,13 +77,27 @@
         android:id="@+id/scrollView3"
         android:layout_alignParentEnd="true"
         android:fillViewport="false"
-        android:layout_above="@+id/button3">
+        android:layout_above="@+id/button3"
+        android:layout_below="@+id/scrollView">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Text"
-            android:id="@+id/textView3" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="New Text"
+                android:id="@+id/textView3" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text"
+                android:id="@+id/textView4" />
+        </LinearLayout>
     </ScrollView>
 
     <Button
@@ -91,7 +105,7 @@
         android:layout_height="wrap_content"
         android:text="New Button"
         android:id="@+id/button3"
-        android:onClick="calculateAvg"
+        android:onClick="newAvg"
         android:focusable="true"
         android:clickable="true"
         android:layout_alignParentBottom="true"
@@ -114,33 +128,9 @@
         android:layout_width="160dp"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:layout_above="@+id/scrollView"
         android:id="@+id/linearLayout">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Number of Initial Students"
-            android:id="@+id/textView4"
-            android:layout_gravity="center_horizontal" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:ems="10"
-            android:id="@+id/editText3" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="160dp"
-        android:layout_height="50dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignBottom="@+id/linearLayout">
 
         <TextView
             android:layout_width="wrap_content"

@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,49 +24,55 @@ public class MainActivity extends AppCompatActivity {
     }
 
     float initialAverage = 0;
-
-
-
+    float newAverage = 0;
+    int counter = 0;
 
     public void intAvg (View v){
-        /*
-        EditText numInitStudent = (EditText) findViewById(R.id.editText3);
-        String strNumInit = numInitStudent.getText().toString();
-        float intNumInit = Integer.parseInt(strNumInit);
-        */
-
-
+        //initial student marks
         EditText initMarks = (EditText) findViewById(R.id.editText);
         String strMarks = initMarks.getText().toString();
         String initMarkList[] = strMarks.split("\n");
+        //new student marks
+        EditText newMarks = (EditText) findViewById(R.id.editText2);
+        String strNewMarks = newMarks.getText().toString();
+        String newMarkList[] = strNewMarks.split("\n");
 
-
-        /*
-        String outprint = initMarkList[0]+"\n" + initMarkList[1]+initMarkList[2];
-        TextView textout = (TextView) findViewById(R.id.textView3);
-
-        textout.setText(outprint);
-        */
-
+        counter = counter + 1;
 
         float sum = 0;
         for (int i = 0; i< initMarkList.length; i++){
             String mark = initMarkList[i];
             float intMark = Float.parseFloat(mark);
             sum = sum+intMark;
-            /*
-            String fMark = Float.toString(sum);
-            TextView textout = (TextView) findViewById(R.id.textView3);
-            String outprint = fMark +"\n" ;
-            textout.setText(outprint);
-            */
+
         }
 
-        initialAverage = sum/initMarkList.length;
-        String strInitAvg = Float.toString(initialAverage);
-        TextView textout = (TextView) findViewById(R.id.textView3);
-        textout.setText(strInitAvg);
 
+
+        float newSum = 0;
+        for (int i=0; i < counter; i++){
+            String addMark = newMarkList[i];
+            float flAddmark = Float.parseFloat(addMark);
+            newSum = flAddmark + sum;
+        }
+
+
+
+
+
+        initialAverage = sum/initMarkList.length;
+        newAverage = (sum+newSum)/(initMarkList.length+counter);
+
+        String strInitAvg = Float.toString(initialAverage);
+        TextView textout1 = (TextView) findViewById(R.id.textView3);
+        String output1 = "Initial average is " + strInitAvg + "percent";
+        textout1.setText(output1);
+
+        String strNewAverage = Float.toString(newAverage);
+        String strCounter = Integer.toString(counter);
+        TextView textout2 = (TextView) findViewById(R.id.textView4);
+        String output2 = "New Average after student " + strCounter + " is " + strNewAverage;
+        textout2.setText(output2);
 
 
 
@@ -80,7 +87,24 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-/*
+            /*String strNewAvg = Float.toString(newAverage);
+
+            TextView textout = (TextView) findViewById(R.id.textView3);
+            String outprint = "The new average after student " + (i+1)+ " is" + "" + strNewAvg;
+            textout.setText(outprint);
+            */
+
+}
+
+
+
+
+
+
+
+
+
+        /*
 
         EditText student1 = (EditText) findViewById(R.id.editText;
         EditText student2 = (EditText) findViewById(R.id.editText2);
@@ -102,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
 
         TextView textout = (TextView) findViewById(R.id.textView3);
         textout.setText(finalAvg);
-*/
+        */
 
 
 
@@ -113,4 +137,4 @@ public class MainActivity extends AppCompatActivity {
         ((LinearLayout) findViewById(R.id.initialLayout)).addView(entry);
         */
 
-}
+
