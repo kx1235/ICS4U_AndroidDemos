@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     int counter = 0;
 
-    public void intAvg (View v){
+    public void Avg (View v){
         //initial student marks
         EditText initMarks = (EditText) findViewById(R.id.editText);
         String strMarks = initMarks.getText().toString();
@@ -37,8 +37,10 @@ public class MainActivity extends AppCompatActivity {
         String strNewMarks = newMarks.getText().toString();
         String newMarkList[] = strNewMarks.split("\n");
 
+        //counter used to keep track of new student marks
         counter = counter + 1;
 
+        //calculating the sum mark of initial students
         float sum = 0;
         for (int i = 0; i< initMarkList.length; i++){
             String mark = initMarkList[i];
@@ -48,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-
+        //calculating the new sum after each new student is added to initial sum
         float newSum = 0;
         float tempSum = 0;
         for (int i=0; i < counter; i++){
@@ -62,20 +64,24 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
+        //calculating the average of initial students
         initialAverage = sum/initMarkList.length;
+
+        //calculate how each new student affects the average
         int totalStudent = initMarkList.length + counter;
         float newAverage = newSum/totalStudent;
 
+        //converting initial student average to string for textview output
         String strInitAvg = Float.toString(initialAverage);
         TextView textout1 = (TextView) findViewById(R.id.textView3);
-        String output1 = "Initial average is " + strInitAvg + " percent";
+        String output1 = "Initial average is " + strInitAvg + " %";
         textout1.setText(output1);
 
+        //converting new average to string for textview output
         String strNewAverage = Float.toString(newAverage);
         String strCounter = Integer.toString(counter);
         TextView textout2 = (TextView) findViewById(R.id.textView4);
-        String output2 = "New Average after student " + strCounter + " is " + strNewAverage;
+        String output2 = "The new average after student " + strCounter + " is " + strNewAverage + " %";
         textout2.setText(output2);
 
 
@@ -91,12 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-            /*String strNewAvg = Float.toString(newAverage);
 
-            TextView textout = (TextView) findViewById(R.id.textView3);
-            String outprint = "The new average after student " + (i+1)+ " is" + "" + strNewAvg;
-            textout.setText(outprint);
-            */
 
 }
 

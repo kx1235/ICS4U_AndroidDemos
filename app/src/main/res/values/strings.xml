@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Method Madness</string>
-    <string name="init">Averages of Initial Students</string>
-    <string name="New">Averages of New Students</string>
+    <string name="init">Marks of Initial Students</string>
+    <string name="New">Marks of New Students</string>
     <string name="Calc">Updated Class Average</string>
-    <string name="avg">Enter Student Average</string>
+    <string name="avg">Enter Student mark</string>
 </resources>
