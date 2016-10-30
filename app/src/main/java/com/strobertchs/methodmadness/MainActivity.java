@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     float initialAverage = 0;
-    float newAverage = 0;
+
     int counter = 0;
 
     public void intAvg (View v){
@@ -50,10 +50,13 @@ public class MainActivity extends AppCompatActivity {
 
 
         float newSum = 0;
+        float tempSum = 0;
         for (int i=0; i < counter; i++){
             String addMark = newMarkList[i];
             float flAddmark = Float.parseFloat(addMark);
-            newSum = flAddmark + sum;
+            tempSum = tempSum + flAddmark;
+
+            newSum = tempSum + sum;
         }
 
 
@@ -61,11 +64,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         initialAverage = sum/initMarkList.length;
-        newAverage = (sum+newSum)/(initMarkList.length+counter);
+        int totalStudent = initMarkList.length + counter;
+        float newAverage = newSum/totalStudent;
 
         String strInitAvg = Float.toString(initialAverage);
         TextView textout1 = (TextView) findViewById(R.id.textView3);
-        String output1 = "Initial average is " + strInitAvg + "percent";
+        String output1 = "Initial average is " + strInitAvg + " percent";
         textout1.setText(output1);
 
         String strNewAverage = Float.toString(newAverage);
